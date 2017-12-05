@@ -2,10 +2,9 @@
 from collections import defaultdict
 
 # 3p
-from kafka.client import KafkaClient
-from kafka.consumer import SimpleConsumer
+from kafka import SimpleClient, SimpleConsumer
 
-kafka_conn = KafkaClient("kafka:9092")
+kafka_conn = SimpleClient("192.168.208.2:9092")
 consumer = SimpleConsumer(kafka_conn, "sample_check", "test-topic",
                           auto_commit=True)
 
